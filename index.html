@@ -1,0 +1,1751 @@
+<!-- First webpage -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل الإدارة الغذائية لمرض السكري من النوع الأول - دليل شامل للمجتمع المصري</title>
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cairo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', 'Cairo', system-ui, sans-serif; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .chart-container {
+            min-height: 400px;
+        }
+        /* Custom Tailwind Configuration */
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        secondary: {
+                            50: '#f0fdf4',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d'
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        'arabic': ['Tajawal', 'Cairo', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Theme Toggle -->
+    <div class="fixed top-4 left-4 z-50">
+        <button id="theme-toggle" class="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <i class="fas fa-moon dark:fas fa-sun text-gray-700 dark:text-yellow-400 text-lg group-hover:scale-110 transition-transform"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="text-center animate-fade-in">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-heartbeat text-red-500 text-4xl ml-3"></i>
+                    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">دليل الإدارة الغذائية لمرض السكري</h1>
+                </div>
+                <p class="font-bold text-red-700 dark:text-red-300 mb-2">
+اهداء من الباحثة/ هبة عبد الرسول عبد الله الفقي، تحت اشراف دكتور/ ثناء عبد الفتاح الخولي                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-primary-600 dark:bg-gray-700 text-white sticky top-0 z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center space-x-reverse space-x-8 py-4 overflow-x-auto">
+                <a href="#overview" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10"><i class="fas fa-info-circle ml-2"></i>نظرة عامة
+                </a>
+                <a href="#basics" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-apple-alt ml-2"></i>المبادئ الأساسية
+                </a>
+                <a href="#carbs" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-calculator ml-2"></i>حساب الكربوهيدرات
+                </a>
+                <a href="#planning" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-calendar-alt ml-2"></i>تخطيط الوجبات
+                </a>
+                <a href="#ramadan" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-moon ml-2"></i>رمضان والمناسبات
+                </a>
+                <a href="#mistakes" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-exclamation-triangle ml-2"></i>الأخطاء الشائعة
+                </a>
+                <a href="#qna" class="hover:text-accent-500 transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-question-circle ml-2"></i>أسئلة وأجوبة
+                </a></div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12animate-fade-in">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-eye text-primary-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">نظرة عامة</h2>
+                </div>
+                <div class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p class="text-xl mb-6 text-primary-700 dark:text-primary-300 font-medium">
+                         هذا التقرير يقدم دليل مختصر للإدارة الغذائية للأفراد المصابين بمرض السكري من النوع الأول .
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl">
+                            <h3 class="font-bold text-lg mb-3 flex items-center">
+                                <i class="fas fa-target text-blue-600 ml-2"></i>
+                                أهداف الدليل
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• دمج الممارسات الطبية والغذائية القائمة على الأدلة</li>
+                                <li>• تقديم إرشادات عملية لتخطيط الوجبات اليومية</li>
+                                <li>• حساب الكربوهيدرات للأطباق المصرية الشائعة</li>
+                                <li>• فهم المؤشر الجلايسيمي للأطعمة الأساسية</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-6 rounded-xl">
+                            <h3 class="font-bold text-lg mb-3 flex items-center">
+                                <i class="fas fa-heart text-green-600 ml-2"></i>
+                                التحديات الثقافية
+                            </h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>• الأطباق المصرية الغنية بالكربوهيدرات</li>
+                                <li>• المناسبات الاجتماعية والأعياد</li>
+                                <li>• صيام شهر رمضان</li>
+                                <li>• التجمعات العائلية والطعام</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diabetes Introduction -->
+        <section class="mb-12 animate-slide-up">
+            <div class="section-card bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-stethoscope text-red-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">مقدمة حول مرض السكري من النوع الأول</h2>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg mb-6">
+                            <h3 class="font-bold text-xl mb-4 flex items-center">
+                                <i class="fas fa-question-circle text-red-500 ml-2"></i>ما هو مرض السكري من النوع الأول؟
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                هو حالة مزمنة تحدث عندما ينتج البنكرياس كمية قليلة جدًا من الأنسولين أو لا ينتجه على الإطلاق، وهو هرمون ضروري للسماح للسكر (الجلوكوز) بدخول الخلايا لإنتاج الطاقة. غالبًا ما يتم تشخيصه لدى الأطفال والشباب، ولكن يمكن أن يظهر في أي عمر.
+                            </p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="font-bold text-xl mb-4 flex items-center">
+                                <i class="fas fa-utensils text-green-500 ml-2"></i>
+                                أهمية الإدارة الغذائية
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                تعد الإدارة الغذائية حجر الزاوية في التحكم بمرض السكري من النوع الأول، إلى جانب العلاج بالأنسولين والنشاط البدني ومراقبة نسبة السكر في الدم. يهدف النظام الغذائي إلى الحفاظ على مستويات السكر في الدم ضمن النطاق المستهدف قدر الإمكان.
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="diabetes-stats-chart" class="chart-container bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Basic Principles -->
+        <section id="basics" class="mb-12 animate-fade-in">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-apple-alt text-green-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">المبادئ الأساسية للتغذية الصحية</h2>
+                </div>
+                
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-gradient-to-b from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 p-6 rounded-xl text-center group hover:scale-105 transition-transform">
+                        <i class="fas fa-bread-slice text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">الكربوهيدرات</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">المصدر الرئيسي للطاقة ولها التأثير الأكبر على مستويات السكر في الدم</p>
+                    </div>
+                    <div class="bg-gradient-to-b from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/30 p-6 rounded-xl text-center group hover:scale-105 transition-transform">
+                        <i class="fas fa-drumstick-bite text-red-600 text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">البروتينات</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">ضرورية للنمو وإصلاح الأنسجة، تشمل اللحوم والدواجن والأسماك</p>
+                    </div>
+                    <div class="bg-gradient-to-b from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/30 p-6 rounded-xl text-center group hover:scale-105 transition-transform">
+                        <i class="fas fa-seedling text-yellow-600 text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">الدهون الصحية</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">زيت الزيتون والمكسرات والبذور والأسماك الدهنية</p>
+                    </div>
+                    <div class="bg-gradient-to-b from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 p-6 rounded-xl text-center group hover:scale-105 transition-transform">
+                        <i class="fas fa-leaf text-green-600 text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">الألياف</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">تساعد على تنظيم نسبة السكر في الدم وتحسين الهضم</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-800/20 p-6 rounded-xl">
+                    <h3 class="font-bold text-xl mb-4 flex items-center">
+                        <i class="fas fa-clock text-blue-600 ml-2"></i>
+                        المبادئ الأساسية
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="flex items-start space-x-reverse space-x-3">
+                            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                            <div>
+                                <h4 class="font-semibold">انتظام الوجبات</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">تناول الوجبات في أوقات منتظمة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-reverse space-x-3">
+                            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                            <div>
+                                <h4 class="font-semibold">الترطيب</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">شرب كمية كافية من الماء</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-reverse space-x-3">
+                            <div class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                            <div>
+                                <h4 class="font-semibold">التوازن</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">توازن العناصر الغذائية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carbohydrate Counting -->
+        <section id="carbs" class="mb-12 animate-slide-up">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-calculator text-purple-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">جداول الكربوهيدرات والمؤشر الجلايسيمي</h2>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold text-xl mb-4 flex items-center">
+                            <i class="fas fa-table text-purple-600 ml-2"></i>
+                            الأطعمة المصرية الشائعة
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden">
+                                <thead class="bg-purple-600 text-white"><tr>
+                                        <th class="p-3 text-right">الطعام المصري</th>
+                                        <th class="p-3 text-center">الكربوهيدرات (جم)</th>
+                                        <th class="p-3 text-right">ملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
+                                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                        <td class="p-3 font-medium">خبز بلدي (رغيف متوسط)</td>
+                                        <td class="p-3 text-center font-bold text-purple-600">50</td>
+                                        <td class="p-3 text-sm text-gray-600 dark:text-gray-300">يختلف حسب الحجم</td></tr>
+                                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                        <td class="p-3 font-medium">كشري (طبق متوسط)</td>
+                                        <td class="p-3 text-center font-bold text-purple-600">70-100</td>
+                                        <td class="p-3 text-sm text-gray-600 dark:text-gray-300">يعتمد على المكونات</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                        <td class="p-3 font-medium">فول مدمس (كوب)</td>
+                                        <td class="p-3 text-center font-bold text-purple-600">30</td>
+                                        <td class="p-3 text-sm text-gray-600 dark:text-gray-300">بدون إضافات </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                        <td class="p-3 font-medium">طعمية (3-4 قطع)</td><td class="p-3 text-center font-bold text-purple-600">15-20</td>
+                                        <td class="p-3 text-sm text-gray-600 dark:text-gray-300">حسب طريقة التحضير</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                        <td class="p-3 font-medium">محشي ورق عنب (5-6 قطع)</td>
+                                        <td class="p-3 text-center font-bold text-purple-600">20-25</td><td class="p-3 text-sm text-gray-600 dark:text-gray-300">يعتمد على كمية الأرز</td></tr>
+                                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                        <td class="p-3 font-medium">تمر (3 حبات متوسطة)</td>
+                                        <td class="p-3 text-center font-bold text-purple-600">20</td>
+                                        <td class="p-3 text-sm text-gray-600 dark:text-gray-300">مصدر سريع للطاقة</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="gi-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-xl p-4 h-full"></div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-100 dark:from-yellow-900/20 dark:to-orange-800/20 p-6 rounded-xl">
+                    <h3 class="font-bold text-xl mb-4 flex items-center">
+                        <i class="fas fa-chart-line text-orange-600 ml-2"></i>
+                        المؤشر الجلايسيمي (GI)
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-green-100 dark:bg-green-900/30 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-700 dark:text-green-300 mb-2">منخفض (0-55)</h4>
+                            <p class="text-sm">معظم الخضروات، البقوليات، بعض الفواكه</p>
+                        </div>
+                        <div class="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-lg">
+                            <h4 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">متوسط (56-69)</h4>
+                            <p class="text-sm">خبز بلدي أسمر، أرز بسمتي، بطاطا حلوة</p>
+                        </div>
+                        <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-700 dark:text-red-300 mb-2">مرتفع (70+)</h4>
+                            <p class="text-sm">خبز أبيض، أرز أبيض، بطاطس مهروسة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meal Planning -->
+        <section id="planning" class="mb-12 animate-fade-in">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-calendar-alt text-blue-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">تخطيط الوجبات اليومية</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold text-xl mb-4 flex items-center">
+                            <i class="fas fa-plate-wheat text-blue-600 ml-2"></i>
+                            طبق الطعام الصحي
+                        </h3>
+                        <div class="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-800/20 p-6 rounded-xl">
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="bg-green-200 dark:bg-green-700 p-4 rounded-lg text-center">
+                                    <i class="fas fa-carrot text-green-700 dark:text-green-300 text-2xl mb-2"></i>
+                                    <p class="font-bold">نصف الطبق</p><p class="text-sm">خضروات غير نشوية او بقول
+                                         </p>
+                                </div>
+                                <div class="space-y-2"><div class="bg-red-200 dark:bg-red-700 p-3 rounded-lg text-center">
+                                        <i class="fas fa-fish text-red-700 dark:text-red-300 text-lg mb-1"></i>
+                                        <p class="font-bold text-sm">ربع الطبق</p>
+                                        <p class="text-xs">بروتين</p>
+                                    </div>
+                                    <div class="bg-yellow-200 dark:bg-yellow-700 p-3 rounded-lg text-center">
+                                        <i class="fas fa-bread-slice text-yellow-700 dark:text-yellow-300 text-lg mb-1"></i><p class="font-bold text-sm">ربع الطبق</p><p class="text-xs">كربوهيدرات</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-4 flex items-center">
+                            <i class="fas fa-clock text-purple-600 ml-2"></i>
+                            جدول الوجبات اليومية
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-orange-50 dark:bg-orange-900/20 border-right-4 border-orange-400 p-4 rounded-lg">
+                                <h4 class="font-bold flex items-center mb-2">
+                                    <i class="fas fa-sun text-orange-500 ml-2"></i>
+                                    الإفطار (7-8 ص)
+                                </h4>
+                                <p class="text-sm">خبز أسمر + فول أو بيض + جبن قريش + خضروات</p>
+                            </div>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 border-right-4 border-blue-400 p-4 rounded-lg">
+                                <h4 class="font-bold flex items-center mb-2">
+                                    <i class="fas fa-sun text-blue-500 ml-2"></i>
+                                    الغداء (1-2 ظ)
+                                </h4>
+                                <p class="text-sm"> سلطة خضراء أو لحم/دجاج + أرز + خضار</p>
+                            </div>
+                            <div class="bg-purple-50 dark:bg-purple-900/20 border-right-4 border-purple-400 p-4 rounded-lg">
+                                <h4 class="font-bold flex items-center mb-2">
+                                    <i class="fas fa-moon text-purple-500 ml-2"></i>
+                                    العشاء (7-8 م)
+                                </h4>
+                                <p class="text-sm">زبادي + فواكه منخفضة GI أو جبن + خضروات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-indigo-50 to-purple-100 dark:from-indigo-900/20 dark:to-purple-800/20 p-6 rounded-xl">
+                    <h3 class="font-bold text-xl mb-4 flex items-center">
+                        <i class="fas fa-utensils text-indigo-600 ml-2"></i>
+                        نصائح التحكم في الحصص
+                    </h3>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <i class="fas fa-hand-paper text-2xl text-indigo-600 mb-2"></i>
+                            <p class="font-semibold text-sm">استخدم أطباقًا أصغر</p>
+                        </div>
+                        <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <i class="fas fa-eye text-2xl text-indigo-600 mb-2"></i>
+                            <p class="font-semibold text-sm">اقرأ الملصقات الغذائية</p>
+                        </div>
+                        <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <i class="fas fa-balance-scale text-2xl text-indigo-600 mb-2"></i>
+                            <p class="font-semibold text-sm">تعلم تقدير الحصص</p>
+                        </div>
+                        <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <i class="fas fa-ban text-2xl text-indigo-600 mb-2"></i>
+                            <p class="font-semibold text-sm">تجنب العبوات الكبيرة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ramadan Section -->
+        <section id="ramadan" class="mb-12 animate-slide-up">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-moon text-purple-600 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">تناول الطعام خلال شهر رمضان والمناسبات الخاصة</h2>
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-800/30 p-6 rounded-xl mb-8">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl ml-3"></i>
+                        <h3 class="font-bold text-xl text-red-700 dark:text-red-300">تحذير مهم</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        يتطلب الصيام خلال شهر رمضان تخطيطًا دقيقًا لمرضى السكري من النوع الأول لتجنب المضاعفات. يجب استشارة الطبيب قبل رمضان بـ 6-8 أسابيع على الأقل.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold text-xl mb-4 flex items-center">
+                            <i class="fas fa-heart-pulse text-red-500 ml-2"></i>
+                            متى يجب كسر الصيام فورًا؟
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 rounded-lg">
+                                <p class="font-semibold text-red-700 dark:text-red-300">سكر الدم أقل من 70 مجم/ديسيلتر</p></div>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 p-4 rounded-lg">
+                                <p class="font-semibold text-orange-700 dark:text-orange-300">سكر الدم بين 70-90 في الساعات الأولى</p>
+                            </div>
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 rounded-lg">
+                                <p class="font-semibold text-red-700 dark:text-red-300">سكر الدم أعلى من 300 مجم/ديسيلتر</p>
+                            </div>
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-4 rounded-lg">
+                                <p class="font-semibold text-yellow-700 dark:text-yellow-300">ظهور أعراض نقص أو ارتفاع السكر</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="ramadan-schedule-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-xl p-4"></div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-4 flex items-center">
+                            <i class="fas fa-utensils text-blue-600 ml-2"></i>
+                            وجبة السحور
+                        </h3>
+                        <ul class="space-y-2text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 ml-2"></i>
+                                <span>تأخير السحور قدر الإمكان</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 ml-2"></i>
+                                <span>كربوهيدرات معقدة (خبز أسمر، شوفان)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 ml-2"></i>
+                                <span>بروتينودهون صحية</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 ml-2"></i>
+                                <span>كمية كافية من الماء</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-4 flex items-center">
+                            <i class="fas fa-sunset text-orange-600 ml-2"></i>
+                            وجبة الإفطار
+                        </h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 ml-2"></i>
+                                <span>ابدأ بتمرة أو اثنتين + ماء</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 ml-2"></i>
+                                <span>وجبة متوازنة ومتنوعة</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 ml-2"></i>
+                                <span>تجنب الحلويات الغنية بالسكر</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 ml-2"></i>
+                                <span>تجنب الإفراط في تناول الطعام</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Mistakes -->
+        <section id="mistakes" class="mb-12 animate-fade-in">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">الأخطاء الغذائية الشائعة وكيفية تجنبها</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="bg-red-50 dark:bg-red-900/20 border-right-4 border-red-400 p-6 rounded-lg group hover:shadow-lg transition-shadow">
+                            <div class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 text-2xl mt-1 ml-3"></i>
+                                <div>
+                                    <h3 class="font-bold text-red-700 dark:text-red-300 mb-2">إهمال حساب الكربوهيدرات</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">التقدير الخاطئ لمحتوى الكربوهيدرات في الوجبات</p>
+                                    <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg"><p class="text-sm font-medium text-green-700 dark:text-green-300"><i class="fas fa-lightbulb ml-1"></i>
+                                            الحل: تعلم قراءة الملصقات واستخدام ميزان الطعام
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 dark:bg-orange-900/20 border-right-4 border-orange-400 p-6 rounded-lg group hover:shadow-lg transition-shadow">
+                            <div class="flex items-start">
+                                <i class="fas fa-times-circle text-orange-500 text-2xl mt-1 ml-3"></i>
+                                <div>
+                                    <h3 class="font-bold text-orange-700 dark:text-orange-300 mb-2">الإفراط في السكريات البسيطة</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">خاصة في المناسبات والحلويات</p><div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+                                        <p class="text-sm font-medium text-green-700 dark:text-green-300"><i class="fas fa-lightbulb ml-1"></i>
+                                            الحل: الاعتدال وحساب الكربوهيدرات حتى للحلويات
+                                        </p></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 border-right-4 border-yellow-400 p-6 rounded-lg group hover:shadow-lg transition-shadow">
+                            <div class="flex items-start">
+                                <i class="fas fa-times-circle text-yellow-600 text-2xl mt-1 ml-3"></i>
+                                <div>
+                                    <h3 class="font-bold text-yellow-700 dark:text-yellow-300 mb-2">عدم انتظام الوجبات</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">تخطي وجبات أو عدم انتظام مواعيدها</p>
+                                    <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+                                        <p class="text-sm font-medium text-green-700 dark:text-green-300">
+                                            <i class="fas fa-lightbulb ml-1"></i>
+                                            الحل: الالتزام بجدول وجبات منتظم
+                                        </p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 dark:bg-purple-900/20 border-right-4 border-purple-400 p-6 rounded-lg group hover:shadow-lg transition-shadow">
+                            <div class="flex items-start">
+                                <i class="fas fa-times-circle text-purple-500 text-2xl mt-1 ml-3"></i>
+                                <div>
+                                    <h3 class="font-bold text-purple-700 dark:text-purple-300 mb-2">الخوف من الكربوهيدرات</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">تجنب الكربوهيدرات تمامًا</p>
+                                    <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+                                        <p class="text-sm font-medium text-green-700 dark:text-green-300">
+                                            <i class="fas fa-lightbulb ml-1"></i>
+                                            الحل: اختيار الكربوهيدرات الصحية المعقدة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border-right-4 border-blue-400 p-6 rounded-lg group hover:shadow-lg transition-shadow">
+                            <div class="flex items-start">
+                                <i class="fas fa-times-circle text-blue-500 text-2xl mt-1 ml-3"></i>
+                                <div>
+                                    <h3 class="font-bold text-blue-700 dark:text-blue-300 mb-2">عدم شرب كمية كافية من الماء</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">خاصة أثناء الصيام والطقس الحار</p>
+                                    <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg"><p class="text-sm font-medium text-green-700 dark:text-green-300">
+                                            <i class="fas fa-lightbulb ml-1"></i>
+                                            الحل: شرب الماء بانتظام طوال اليوم
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 border-right-4 border-indigo-400 p-6 rounded-lg group hover:shadow-lg transition-shadow">
+                            <div class="flex items-start">
+                                <i class="fas fa-times-circle text-indigo-500 text-2xl mt-1 ml-3"></i>
+                                <div>
+                                    <h3 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">إهمال مراقبة سكر الدم</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">عدم القياس المنتظم لمستويات السكر</p>
+                                    <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
+                                        <p class="text-sm font-medium text-green-700 dark:text-green-300">
+                                            <i class="fas fa-lightbulb ml-1"></i>
+                                            الحل: المراقبة المنتظمة وتسجيل النتائج
+                                        </p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Q&A Section -->
+        <section id="qna" class="mb-12 animate-slide-up">
+            <div class="section-card bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-question-circle text-green-500 text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">أسئلة وأجوبة عملية للعائلات المصرية</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-utensils text-blue-600 ml-2"></i>
+                            هل يمكن لطفلي المصاب بالسكري أن يأكل الكشري أو المحشي؟
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            نعم، يمكنه تناول هذه الأطعمة، ولكن باعتدال وضمن خطة غذائية محسوبة الكربوهيدرات. يجب تقدير كمية الكربوهيدرات في الحصة المتناولة وتعديل جرعة الأنسولين وفقًا لذلك. يفضل تحضيرها في المنزل للتحكم في المكونات.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-birthday-cake text-green-600 ml-2"></i>
+                            كيف أتعامل مع إصرار الأقارب على تقديم الحلويات لطفلي؟
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            يمكنك شرح حالة طفلك بلطف وحزم. جهز بدائل صحية ولذيذة يمكن لطفلك تناولها. إذا كان لا بد من تناول قطعة صغيرة من الحلوى، يجب حسابها ضمن الكربوهيدرات وتغطيتها بالأنسولين حسب توجيهات الطبيب.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-apple-alt text-purple-600 ml-2"></i>
+                            هل يجب على ابني المصاب بالسكري تجنب الفاكهة تمامًا؟
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            لا، الفاكهة جزء مهم من نظام غذائي صحي لاحتوائها على الفيتامينات والمعادن والألياف. يجب اختيار الفواكه ذات المؤشر الجلايسيمي المنخفض إلى المتوسط وتناولها بحصص محسوبة ضمن خطة الكربوهيدرات اليومية.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-tint text-orange-600 ml-2"></i>
+                            ابني لا يحب شرب الماء، ما هي البدائل الصحية؟
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            يمكن تقديم الماء بنكهات طبيعية (مثل شرائح الليمون أو النعناع). بعض الأعشاب غير المحلاة مثل الينسون أو الكركديه (بدون سكر) يمكن أن تكون بدائل جيدة. تجنب العصائر المحلاة والمشروبات الغازية تمامًا.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-red-50 to-pink-100 dark:from-red-900/20 dark:to-pink-800/20 p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-moon text-red-600 ml-2"></i>
+                            هل صيام رمضان آمن لجميع مرضى السكري من النوع الأول؟
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            لا يُنصح بصيام رمضان  مرضى السكري من النوع الأول، إذا كان السكر غير منتظم أو هناك مضاعفات. القرار يجب أن يتخذ بالتشاور الدقيق مع الطبيب المعالج بعد تقييم شامل للحالة الصحية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="mb-12 animate-fade-in">
+            <div class="section-card bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-3xl p-8 shadow-xl">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-book-medical text-3xl ml-4"></i>
+                    <h2 class="text-3xl font-bold">المصادر والموارد المفيدة</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <i class="fas fa-hospital text-3xl mb-3"></i>
+                        <h3 class="font-bold mb-2">عيادات السكري المتخصصة</h3>
+                        <p class="text-sm opacity-90">رعاية طبية متكاملة من أطباء متخصصين</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <i class="fas fa-users text-3xl mb-3"></i>
+                        <h3 class="font-bold mb-2">جمعيات مرضى السكري</h3>
+                        <p class="text-sm opacity-90">برامج تثقيفية ومجموعات دعم</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <i class="fas fa-user-md text-3xl mb-3"></i>
+                        <h3 class="font-bold mb-2">أخصائيو التغذية</h3>
+                        <p class="text-sm opacity-90">استشارات غذائية شخصية</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <i class="fas fa-mobile-alt text-3xl mb-3"></i>
+                        <h3 class="font-bold mb-2">التطبيقات والمواقع</h3>
+                        <p class="text-sm opacity-90">أدوات رقمية لمتابعة الحالة</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-xl">
+                    <h3 class="font-bold text-xl mb-4 flex items-center">
+                        <i class="fas fa-exclamation-circle ml-2"></i>
+                        تذكر دائمًا
+                    </h3>
+                    <p class="text-lg leading-relaxed opacity-95">
+                        طبيبك المعالج وأخصائي التغذية هما أفضل مصدر للمعلومات والنصائح الخاصة بحالتك. لا تتردد في طرح الأسئلة والاستفسارات للحصول على أفضل رعاية ممكنة.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold mb-2">About The Author</h3>
+                    <p class="text-lg text-gray-300">Abeer Bakoush</p>
+                </div>
+                <div class="flex justify-center space-x-reverse space-x-6 mb-6">
+                    <a href="https://facebook.com/drAbeerBakoush" class="text-blue-400 hover:text-blue-300 transition-colors text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://facebook.com/NutriStaffArabia" class="text-blue-600 hover:text-blue-500 transition-colors text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="mailto:info@abeerb.com" class="text-gray-400 hover:text-gray-300 transition-colors text-2xl">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-6">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 جميع الحقوق محفوظة. هذا الدليل مُقدم لأغراض تعليمية فقط ولا يُغني عن الاستشارة الطبية المتخصصة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const currentTheme = savedTheme || systemPreference;
+
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            theme: 'default',
+            themeVariables: {
+                fontFamily: 'Tajawal, Cairo, system-ui, sans-serif'
+            }
+        });
+
+        // Charts
+        window.addEventListener('DOMContentLoaded', function() {
+            // Diabetes Statistics Chart
+            const diabetesChart = echarts.init(document.getElementById('diabetes-stats-chart'));
+            const diabetesOption = {
+                title: {
+                    text: 'إحصائيات مرض السكري',
+                    left: 'center',
+                    textStyle: { fontSize: 16, fontFamily: 'Tajawal' }
+                },
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                series: [{
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    data: [
+                        { value: 10, name: 'النوع الأول', itemStyle: { color: '#ef4444' } },
+                        { value: 85, name: 'النوع الثاني', itemStyle: { color: '#3b82f6' } },
+                        { value: 5, name: 'أنواع أخرى', itemStyle: { color: '#22c55e' } }
+                    ],
+                    label: { show: true, formatter: '{b}\n{c}%' }
+                }]
+            };
+            diabetesChart.setOption(diabetesOption);
+
+            // Glycemic Index Chart
+            const giChart = echarts.init(document.getElementById('gi-chart'));
+            const giOption = {
+                title: {
+                    text: 'المؤشر الجلايسيمي للأطعمة المصرية',
+                    left: 'center',
+                    textStyle: { fontSize: 14, fontFamily: 'Tajawal' }
+                },
+                tooltip: { trigger: 'axis' },
+                xAxis: {
+                    type: 'category',
+                    data: ['خبز أبيض', 'أرز أبيض', 'فول', 'عدس', 'تفاح', 'موز', 'بطاطس'],
+                    axisLabel: { interval: 0, rotate: 45, fontSize: 10 }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'المؤشر الجلايسيمي',
+                    max: 100
+                },
+                series: [{
+                    data: [
+                        { value: 75, itemStyle: { color: '#ef4444' } },
+                        { value: 73, itemStyle: { color: '#ef4444' } },
+                        { value: 40, itemStyle: { color: '#22c55e' } },
+                        { value: 32, itemStyle: { color: '#22c55e' } },
+                        { value: 36, itemStyle: { color: '#22c55e' } },
+                        { value: 62, itemStyle: { color: '#f59e0b' } },
+                        { value: 78, itemStyle: { color: '#ef4444' } }
+                    ],
+                    type: 'bar',
+                    showBackground: true,
+                    backgroundStyle: { color: 'rgba(180, 180, 180, 0.2)' }
+                }]
+            };
+            giChart.setOption(giOption);
+
+            // Ramadan Schedule Chart
+            const ramadanChart = echarts.init(document.getElementById('ramadan-schedule-chart'));
+            const ramadanOption = {
+                title: {
+                    text: 'جدول مراقبة السكر في رمضان',
+                    left: 'center',
+                    textStyle: { fontSize: 14, fontFamily: 'Tajawal' }
+                },
+                tooltip: { trigger: 'axis' },
+                xAxis: {
+                    type: 'category',
+                    data: ['السحور', 'الفجر', 'الضحى', 'الظهر', 'العصر', 'المغرب', 'العشاء'],
+                    axisLabel: { interval: 0, rotate: 45, fontSize: 10 }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'أهمية المراقبة',
+                    max: 10
+                },
+                series: [{
+                    data: [9, 8, 6, 7, 8, 10, 7],
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: { color: '#8b5cf6' },
+                    areaStyle: { 
+                        color: {
+                            type: 'linear',
+                            x: 0, y: 0, x2: 0, y2: 1,
+                            colorStops: [
+                                { offset: 0, color: 'rgba(139, 92, 246, 0.3)' },
+                                { offset: 1, color: 'rgba(139, 92, 246, 0.1)' }
+                            ]
+                        }
+                    }
+                }]
+            };
+            ramadanChart.setOption(ramadanOption);
+
+            // Responsive charts
+            window.addEventListener('resize', () => {
+                diabetesChart.resize();
+                giChart.resize();
+                ramadanChart.resize();
+            });
+        });
+
+        // Lazy loading animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+<!-- Second webpage -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Two</title>
+  ...
+</head>
+<body>
+  ...
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الشامل لمعرفة نقاط الطعام للتبديل لأبطال السكر من النوع الأول</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Tahoma', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .author {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+
+        .navigation {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn.active {
+            background: #2196F3;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .content-section h3 {
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .content-section ul {
+            margin: 15px 0;
+            padding-right: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid #3498db;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid #f39c12;
+        }
+
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid #e74c3c;
+        }
+
+        .calculation-tool {
+            background: #e8f5e8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 5px solid #27ae60;
+        }
+
+        .calc-input {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+
+        .calc-input label {
+            min-width: 150px;
+            font-weight: bold;
+        }
+
+        .calc-input input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100px;
+        }
+
+        .calc-input input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .calc-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+            transition: background 0.3s ease;
+        }
+
+        .calc-button:hover {
+            background: #2980b9;
+        }
+
+        .calc-result {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+            border-right: 5px solid #28a745;
+        }
+
+        .food-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .food-table th,
+        .food-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .food-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .food-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .food-table tr:hover {
+            background: #e3f2fd;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .calc-input {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .calc-input label {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>الدليل الشامل لمعرفة نقاط الطعام للتبديل</h1>
+            <h2>لأبطال السكر من النوع الأول</h2>
+            <div class="author">Abeer Bakoush</div>
+            <div class="author">أخصائية التغذية العلاجية</div>
+        </div>
+
+        <div class="navigation">
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showSection('intro')">المقدمة</button>
+                <button class="nav-btn" onclick="showSection('basics')">الأساسيات</button>
+                <button class="nav-btn" onclick="showSection('calculator')">حاسبة النقاط</button>
+                <button class="nav-btn" onclick="showSection('food-lists')">جداول الطعام</button>
+                <button class="nav-btn" onclick="showSection('tips')">نصائح مهمة</button>
+                <button class="nav-btn" onclick="showSection('about')">عن الدليل</button>
+            </div>
+        </div>
+        <!-- المقدمة -->
+        <div id="intro" class="content-section active">
+            <h2>مقدمة الدليل</h2>
+            <div class="highlight">
+                <p><strong>جميعنا يعلم أن ضبط الأكل بالإضافة إلى ممارسة الرياضة والمواظبة على الأنسولين بالجرعات التي يحددها الطبيب هم الضمان لسكر مضبوط وبالتالي حياة خالية من المشاكل والمضاعفات.</strong></p>
+            </div>
+
+            <p>وإذ أن تغذية أبطال السكر من النوع الأول تعتمد على حساب كميات النشويات في الأكل فقد فكرت في جمع ما قدرت عليه من أكلات مختلفة في هذا الدليل تسهيلاً على كل أب وأم لتكون بمثابة هدية بسيطة إلى أن تأتي العطايا من الله بالعلاج النهائي للسكر.</p>
+
+            <div class="important-note">
+                <p><strong>ملاحظة مهمة:</strong> بالتأكيد أنصح بتطبيق ما فيه بعد الرجوع للطبيب المعالج فهو مرآتك لضبط السكر.</p>
+            </div>
+        </div>
+
+        <!-- الأساسيات -->
+        <div id="basics" class="content-section">
+            <h2>الأمور الهامة التي يجب معرفتها</h2>
+
+            <h3>النقاط الأساسية:</h3>
+            <ul>
+                <li><strong>تذكر جيداً أن الطفل البطل المصاب بالسكر يحتاج إلى الغذاء المتكامل كأي طفل</strong></li>
+
+                <li><strong>النظام الغذائي بإتباع نقاط الطعام التبادلية:</strong>
+                    <ul>
+                        <li>يتم تقسيم الوجبات على اليوم بحيث يتناول الطفل كمية السعرات المناسبة لمرحلة النمو التي يمر بها مع مراعاة التكوين السليم للوجبة</li>
+                    </ul>
+                </li>
+
+                <li><strong>يتم تحويل كمية النشويات إلى نقط تعد لتسهيل حسابها في الوجبات وتكون النقطة مساوية لـ 15 جرام من النشويات</strong> كما هو موضح في هذا الكتيب</li>
+
+                <li><strong>اسأل طبيبك عن عدد نقاط النشويات المسموحة يومياً وطريقة توزيعها على مدار اليوم حسب نشاطك ومقدار جرعة الأنسولين لكل نقطة</strong></li>
+            </ul>
+
+            <div class="warning">
+                <p><strong>تنبيه مهم:</strong> صحيح النشويات هي المسبب الرئيسي لارتفاع السكر ولكن يجب ألا نغفل باقي المكونات الغذائية لضمان وجبة غذائية متكاملة ويمكنك استعمال نظام الطبق الغذائي لضمان وجبة غذائية متكاملة.</p>
+            </div>
+
+            <h3>المقاييس المستخدمة:</h3>
+            <div class="highlight">
+                <ul>
+                    <li>ملعقة شاي = 5 ملي</li>
+                    <li>ملعقة طعام = 15 ملي = 3 ملاعق شاي</li>
+                    <li>كوب = 250 ملي = ¼ لتر تقريباً</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- حاسبة النقاط -->
+        <div id="calculator" class="content-section">
+            <h2>حاسبة نقاط النشويات</h2>
+
+            <div class="calculation-tool">
+                <h3>احسب نقاط النشويات للطعام</h3>
+                <p>النقطة الواحدة = 15 جرام نشويات</p>
+
+                <div class="calc-input">
+                    <label for="carbs-amount">كمية النشويات (جرام):</label>
+                    <input type="number" id="carbs-amount" placeholder="أدخل الكمية">
+                </div>
+
+                <button class="calc-button" onclick="calculatePoints()">احسب النقاط</button>
+
+                <div id="calc-result" class="calc-result" style="display: none;"></div>
+            </div>
+
+            <div class="calculation-tool">
+                <h3>احسب جرعة الأنسولين المطلوبة</h3>
+                <p>حسب نسبة الأنسولين للنشويات التي يحددها طبيبك</p>
+
+                <div class="calc-input">
+                    <label for="points-total">إجمالي النقاط:</label>
+                    <input type="number" id="points-total" placeholder="عدد النقاط">
+                </div>
+
+                <div class="calc-input">
+                    <label for="insulin-ratio">نسبة الأنسولين (وحدة/نقطة):</label>
+                    <input type="number" id="insulin-ratio" placeholder="النسبة" step="0.1">
+                </div>
+
+                <button class="calc-button" onclick="calculateInsulin()">احسب الأنسولين</button>
+
+                <div id="insulin-result" class="calc-result" style="display: none;"></div>
+            </div>
+        </div>
+        <!-- جداول الطعام -->
+        <div id="food-lists" class="content-section">
+            <h2>جداول نقاط الأكل</h2>
+
+            <input type="text" class="search-box" id="food-search" placeholder="ابحث عن طعام معين..." onkeyup="searchFood()">
+
+            <h3>الحبوب والنشويات</h3>
+            <table class="food-table" id="carbs-table">
+                <thead>
+                    <tr>
+                        <th>الطعام</th>
+                        <th>الكمية</th>
+                        <th>عدد النقاط</th>
+                        <th>الملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>أرز أبيض مطبوخ</td>
+                        <td>⅓ كوب</td>
+                        <td>1</td>
+                        <td>مطبوخ بدون دهون</td>
+                    </tr>
+                    <tr>
+                        <td>خبز أبيض</td>
+                        <td>شريحة واحدة</td>
+                        <td>1</td>
+                        <td>25-30 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>خبز أسمر</td>
+                        <td>شريحة واحدة</td>
+                        <td>1</td>
+                        <td>25-30 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>مكرونة مطبوخة</td>
+                        <td>⅓ كوب</td>
+                        <td>1</td>
+                        <td>بدون صوص</td>
+                    </tr>
+                    <tr>
+                        <td>بطاطس مسلوقة</td>
+                        <td>حبة صغيرة</td>
+                        <td>1</td>
+                        <td>85 جرام تقريباً</td>
+                    </tr>
+                    <tr>
+                        <td>بطاطا حلوة</td>
+                        <td>⅓ كوب</td>
+                        <td>1</td>
+                        <td>مطبوخة بدون سكر</td>
+                    </tr>
+                    <tr>
+                        <td>كورن فليكس</td>
+                        <td>¾ كوب</td>
+                        <td>1</td>
+                        <td>بدون سكر مضاف</td>
+                    </tr>
+                    <tr>
+                        <td>شوفان مطبوخ</td>
+                        <td>½ كوب</td>
+                        <td>1</td>
+                        <td>بدون سكر</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>الفواكه</h3>
+            <table class="food-table" id="fruits-table">
+                <thead>
+                    <tr>
+                        <th>الفاكهة</th>
+                        <th>الكمية</th>
+                        <th>عدد النقاط</th>
+                        <th>الملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>تفاح</td>
+                        <td>حبة صغيرة</td>
+                        <td>1</td>
+                        <td>120 جرام تقريباً</td>
+                    </tr>
+                    <tr>
+                        <td>موز</td>
+                        <td>½ حبة متوسطة</td>
+                        <td>1</td>
+                        <td>60 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>برتقال</td>
+                        <td>حبة صغيرة</td>
+                        <td>1</td>
+                        <td>130 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>عنب</td>
+                        <td>17 حبة</td>
+                        <td>1</td>
+                        <td>85 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>مانجو</td>
+                        <td>½ كوب مقطع</td>
+                        <td>1</td>
+                        <td>85 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>بطيخ</td>
+                        <td>1¼ كوب مقطع</td>
+                        <td>1</td>
+                        <td>200 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>فراولة</td>
+                        <td>1¼ كوب كاملة</td>
+                        <td>1</td>
+                        <td>180 جرام</td>
+                    </tr>
+                    <tr>
+                        <td>تمر</td>
+                        <td>3 حبات</td>
+                        <td>1</td>
+                        <td>متوسط الحجم</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>منتجات الألبان</h3>
+            <table class="food-table" id="dairy-table">
+                <thead>
+                    <tr>
+                        <th>المنتج</th>
+                        <th>الكمية</th>
+                        <th>عدد النقاط</th>
+                        <th>الملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>حليب قليل الدسم</td>
+                        <td>1 كوب</td>
+                        <td>1</td>
+                        <td>240 مل</td>
+                    </tr>
+                    <tr>
+                        <td>زبادي طبيعي</td>
+                        <td>¾ كوب</td>
+                        <td>1</td>
+                        <td>بدون سكر مضاف</td>
+                    </tr>
+                    <tr>
+                        <td>زبادي بالفواكه</td>
+                        <td>⅓ كوب</td>
+                        <td>1</td>
+                        <td>محلى بالفواكه</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>المشروبات</h3>
+            <table class="food-table" id="drinks-table">
+                <thead>
+                    <tr>
+                        <th>المشروب</th>
+                        <th>الكمية</th>
+                        <th>عدد النقاط</th>
+                        <th>الملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>عصير تفاح طبيعي</td>
+                        <td>½ كوب</td>
+                        <td>1</td>
+                        <td>بدون سكر مضاف</td>
+                    </tr>
+                    <tr>
+                        <td>عصير برتقال طبيعي</td>
+                        <td>½ كوب</td>
+                        <td>1</td>
+                        <td>بدون سكر مضاف</td>
+                    </tr>
+                    <tr>
+                        <td>مشروب غازي</td>
+                        <td>⅓ كوب</td>
+                        <td>1</td>
+                        <td>غير مناسب للاستخدام المنتظم</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- نصائح مهمة -->
+        <div id="tips" class="content-section">
+            <h2>نصائح مهمة لأبطال السكر</h2>
+
+            <div class="highlight">
+                <h3>لو سكرك عالي أوعى تحبط</h3>
+                <p><strong>حاول تاني وتالت ورابع وعشرين!</strong></p>
+            </div>
+
+            <h3>نصائح غذائية عامة:</h3>
+            <ul>
+                <li>عدد نقاط الأكل اليومية بيختلف من طفل لآخر حسب العمر والوزن والنشاط</li>
+                <li>استشر طبيبك دائماً قبل تغيير النظام الغذائي</li>
+                <li>اقرأ مكونات الأطعمة المعبأة جيداً</li>
+                <li>احرص على توزيع الوجبات على مدار اليوم</li>
+                <li>لا تهمل الوجبات الخفيفة إذا كانت مطلوبة</li>
+                <li>اشرب الماء بكثرة</li>
+                <li>مارس الرياضة بانتظام</li>
+            </ul>
+
+            <div class="important-note">
+                <h3>علامات ارتفاع السكر:</h3>
+                <ul>
+                    <li>العطش الشديد</li>
+                    <li>التبول المتكرر</li>
+                    <li>التعب والإرهاق</li>
+                    <li>زغللة في النظر</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <h3>علامات انخفاض السكر:</h3>
+                <ul>
+                    <li>الجوع الشديد</li>
+                    <li>التعرق</li>
+                    <li>الارتجاف</li>
+                    <li>الدوخة</li>
+                    <li>سرعة دقات القلب</li>
+                </ul>
+                <p><strong>في حالة انخفاض السكر: تناول 15-20 جرام من السكر البسيط فوراً</strong></p>
+            </div>
+
+            <h3>نصائح للوجبات:</h3>
+            <div class="calculation-tool">
+                <ul>
+                    <li>اجعل نصف طبقك من الخضروات الغير نشوية</li>
+                    <li>ربع الطبق بروتين (لحم، سمك، دجاج، بيض)</li>
+                    <li>ربع الطبق نشويات (حسب عدد النقاط المسموحة)</li>
+                    <li>أضف حصة من منتجات الألبان قليلة الدسم</li>
+                    <li>أضف حصة من الفواكه</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- عن الدليل -->
+        <div id="about" class="content-section">
+            <h2>عن هذا الدليل</h2>
+
+            <div class="highlight">
+                <h3>المؤلف</h3>
+                <p><strong>عبير بقوش</strong></p>
+                <p>اخصائية وباحثة ماجستير في التغذية العلاجية</p>
+                <p>جامعة الأزهر</p>
+            </div>
+
+            <div class="important-note">
+                <h3>الشكر والتقدير</h3>
+                <p>أتوجه بالشكر إلى <strong>دكتور أحمد السبحاوي
+
+أخصائي الغدد الصماء والسكر
+
+المعهد القومي لأمراض السكر والغدد الصماء
+
+
+</strong> للاستعانة بمحتوى كتابه في انشاء هذاالدليل.</p> 
+
+
+            <p>وألتمس الفرصة لأتوجه بالشكر إلى <strong>أستاذتي/ دكتور ثناء عبد الفتاح الخولي
+
+</strong> لدعمها المتواصل .</p>
+            </div>
+
+            <h3>الهدف من هذا الدليل:</h3>
+            <ul>
+                <li>تسهيل حساب نقاط النشويات للأطفال المصابين بالسكر من النوع الأول</li>
+                <li>مساعدة الأهل في التخطيط للوجبات</li>
+                <li>توفير معلومات غذائية دقيقة ومفيدة</li>
+                <li>تقديم نصائح عملية لإدارة السكر بشكل أفضل</li>
+            </ul>
+
+            <div class="warning">
+                <h3>تنبيه مهم:</h3>
+                <p>هذا الدليل هو للمساعدة والتوجيه فقط. يجب دائماً استشارة الطبيب المعالج قبل إجراء أي تغييرات في النظام الغذائي أو جرعات الأنسولين.</p>
+            </div>
+
+            <h3>كيفية استخدام هذا الدليل:</h3>
+            <ol>
+                <li>اقرأ الأساسيات جيداً</li>
+                <li>استخدم حاسبة النقاط لحساب نقاط الأطعمة</li>
+                <li>استعن بجداول الطعام للأطعمة الشائعة</li>
+                <li>اتبع النصائح المقدمة</li>
+                <li>استشر طبيبك دائماً</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>© Abeer Bakoush</p>
+            <p>اخصائية تغذية علاجية</p>
+            <p><strong>اهداء الى مرضى السكري</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        function calculatePoints() {
+            const carbsAmount = parseFloat(document.getElementById('carbs-amount').value);
+            const resultDiv = document.getElementById('calc-result');
+
+            if (isNaN(carbsAmount) || carbsAmount <= 0) {
+                resultDiv.innerHTML = 'يرجى إدخال كمية صحيحة من النشويات';
+                resultDiv.style.display = 'block';
+                return;
+            }
+
+            const points = (carbsAmount / 15).toFixed(1);
+            resultDiv.innerHTML = `عدد النقاط = ${points} نقطة`;
+            resultDiv.style.display = 'block';
+        }
+
+        function calculateInsulin() {
+            const points = parseFloat(document.getElementById('points-total').value);
+            const insulinRatio = parseFloat(document.getElementById('insulin-ratio').value);
+            const resultDiv = document.getElementById('insulin-result');
+
+            if (isNaN(points) || isNaN(insulinRatio) || points <= 0 || insulinRatio <= 0) {
+                resultDiv.innerHTML = 'يرجى إدخال القيم المطلوبة بشكل صحيح';
+                resultDiv.style.display = 'block';
+                return;
+            }
+
+            const insulinUnits = (points * insulinRatio).toFixed(1);
+            resultDiv.innerHTML = `جرعة الأنسولين المطلوبة = ${insulinUnits} وحدة`;
+            resultDiv.style.display = 'block';
+        }
+
+        function searchFood() {
+            const input = document.getElementById('food-search');
+            const filter = input.value.toLowerCase();
+            const tables = document.querySelectorAll('.food-table');
+
+            tables.forEach(table => {
+                const rows = table.getElementsByTagName('tr');
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    let found = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        if (cells[j].textContent.toLowerCase().indexOf(filter) > -1) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (found) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Diabetes Guide loaded successfully');
+        });
+    </script>
+</body>
+</html>
